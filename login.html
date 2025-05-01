@@ -29,7 +29,7 @@
     <label for="password">كلمة المرور:</label>
     <input type="password" id="password" name="password" required>
 
-    <button type="submit" onclick="window.location.href='shop.html'">تسجيل الدخول</button>
+    <button type="button" onclick="login()">تسجيل الدخول</button>
      </form>
      <p>ليس لديك حساب؟ <a href="newAccount.html">إنشاء حساب</a></p>
     </main>
@@ -38,5 +38,17 @@
         <p>جميع الحقوق محفوظة &copy; Glistéra</p>
         <p>تابعونا على <a href="#">إنستقرام</a> | <a href="#">تويتر</a></p>
     </footer>
+ <script>
+  function login() {
+    const form = document.getElementById("login-form");
+
+    if (form.checkValidity()) {
+      alert("تم تأكيد تسجيل الدخول، مرحبًا بك!");
+      window.location.href = "shop.html";
+    } else {
+      form.reportValidity();
+    }
+  }
+</script>
 </body>
 </html>
