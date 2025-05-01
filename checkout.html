@@ -53,7 +53,7 @@
             <label for="cvv">رمز الأمان (CVV):</label>
             <input type="text" id="cvv" name="cvv" maxlength="3" pattern="[0-9]{3}" required>
 </fieldset>
-            <button type="submit" onclick="window.location.href='OrderConfirmation.html'">إتمام الطلب</button>
+            <button type="button" onclick="submitOrder()">إتمام الطلب</button>
         </form>
     </main>
 
@@ -61,5 +61,20 @@
         <p>جميع الحقوق محفوظة &copy; Glistéra</p>
         <p>تابعونا على <a href="#">إنستقرام</a> | <a href="#">تويتر</a></p>
     </footer>
+ <script>
+  function submitOrder() {
+    const form = document.querySelector('form');
+    
+    if (form.checkValidity()) {
+      // يظهر تنبيه، وبعده ينتقل
+      alert("تم إتمام الطلب بنجاح!");
+      window.location.href = "OrderConfirmation.html";
+    } else {
+      form.reportValidity(); // يظهر الأخطاء لو فيه نقص
+    }
+  }
+</script>
+ 
 </body>
+</html>
 </html>
