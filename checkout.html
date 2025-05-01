@@ -64,17 +64,22 @@
  <script>
   function submitOrder() {
     const form = document.querySelector('form');
-    
+    const isLoggedIn = localStorage.getItem("loggedIn");
+
+    if (!isLoggedIn) {
+      alert("يجب تسجيل الدخول أولاً قبل إتمام الطلب.");
+      window.location.href = "login.html";
+      return;
+    }
+
     if (form.checkValidity()) {
-      // يظهر تنبيه، وبعده ينتقل
       alert("تم إتمام الطلب بنجاح!");
       window.location.href = "OrderConfirmation.html";
     } else {
-      form.reportValidity(); // يظهر الأخطاء لو فيه نقص
+      form.reportValidity();
     }
   }
 </script>
  
 </body>
-</html>
 </html>
